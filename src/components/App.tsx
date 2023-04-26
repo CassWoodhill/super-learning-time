@@ -15,10 +15,10 @@ export function App() {
       <Route path="/" element={<RootLayout />}>
         <>
           <Route index element={<Home />} />
-          <Route path="/success" element={<Success />} />
-          {rooms.map((room) => {
+          {/* <Route path="/success" element={<Success />} /> */}
+          {/* {rooms.map((room) => {
             return <Route path={room.path} element={<room.component />} />;
-          })}
+          })} */}
         </>
       </Route>
     )
