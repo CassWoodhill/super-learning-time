@@ -1,0 +1,54 @@
+@use "./normalize.scss";
+@use "./typography.scss";
+@use "./constants/typography.scss" as type;
+@use "./constants/colours.scss" as colour;
+
+/*
+ * Keep these global styles to an absolute minimum.
+ *
+ * - Use class names scoped to components (using CSS modules) rather than global styles.
+ * - There's very probably no reason to add anything other than `img { max-width: 100% }` here.
+ */
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  font-smooth: always;
+  direction: ltr;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  background: colour.$dark;
+  color: colour.$light;
+  font-family: "Space Mono", sans-serif;
+  font-size: map-get(type.$body, "font-size");
+  line-height: map-get(type.$body, "line-height");
+}
+
+img {
+  max-width: 100%;
+}
+
+input,
+a,
+button,
+select,
+textarea {
+  &:focus-visible {
+    box-shadow: 0 0 0 0.2rem colour.$gold;
+    outline: none;
+  }
+}

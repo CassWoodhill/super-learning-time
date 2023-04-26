@@ -1,0 +1,19 @@
+@use "../../../styles/constants/typography.scss" as type;
+@use "../../../styles/constants/colours.scss" as colour;
+@use "../../../styles/constants/layout.scss" as layout;
+
+.input {
+  input {
+    appearance: none;
+    border: 2px solid colour.$purple;
+    display: block;
+    font-size: map-get(type.$body, "font-size");
+    line-height: map-get(type.$body, "line-height");
+    padding: layout.$gutter-small layout.$gutter-smedium;
+    resize: none;
+  }
+
+  label:not(.is-visually-hidden) + input {
+    margin-top: layout.$gutter-smedium;
+  }
+}

@@ -1,0 +1,17 @@
+@use '../../../styles/constants/typography.scss' as type;
+@use '../../../styles/constants/layout.scss' as layout;
+
+.odd-emoji {
+ width: 100%;
+
+ p {
+  font-size: map-get(type.$h1, 'font-size');
+  line-height: map-get(type.$h1, 'line-height');
+  margin-top: layout.$gutter-small;
+ }
+
+ span {
+  display: inline-block;
+  margin-right: layout.$gutter-large;
+ }
+}

@@ -1,0 +1,11 @@
+@use "../../../styles/constants/layout.scss" as layout;
+
+.box {
+  flex-grow: 0;
+  flex-shrink: 1;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: layout.$gutter-medium;
+  padding-right: layout.$gutter-medium;
+  width: 100%;
+}

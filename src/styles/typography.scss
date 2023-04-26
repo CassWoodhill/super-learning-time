@@ -1,0 +1,49 @@
+@use "./constants/typography.scss" as type;
+@use "./constants/colours.scss" as colour;
+@use "./mixins/shadows.scss" as mix;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: block;
+  font-family: "VT323", sans-serif;
+  font-weight: normal;
+  margin: 0;
+  position: relative;
+}
+
+h1 {
+  @include mix.text-shadow(colour.$pink-dark, 1px);
+  color: colour.$gold;
+  font-size: map-get(type.$h1, "font-size");
+  line-height: map-get(type.$h1, "line-height");
+}
+
+h2 {
+  @include mix.text-shadow(colour.$pink-dark, 2px);
+  color: colour.$pink;
+  font-size: map-get(type.$h2, "font-size");
+  line-height: map-get(type.$h2, "line-height");
+}
+
+h3 {
+  color: colour.$light;
+  font-size: map-get(type.$h3, "font-size");
+  line-height: map-get(type.$h3, "line-height");
+  text-shadow: 0 0 2px colour.$light;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.c-blue {
+  color: colour.$blue;
+}

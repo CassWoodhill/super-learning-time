@@ -1,0 +1,12 @@
+@mixin shadow($colour) {
+  border: 1px solid $colour;
+  box-shadow: 0 0 3px 1px $colour, 0 0 2px 1px inset $colour;
+}
+
+@mixin text-shadow($shadow-colour, $shadow-blur) {
+  letter-spacing: 0.05em;
+  text-shadow: $shadow-blur $shadow-blur $shadow-blur $shadow-colour,
+    $shadow-blur * -1 $shadow-blur $shadow-blur $shadow-colour,
+    $shadow-blur $shadow-blur * -1 $shadow-blur $shadow-colour,
+    $shadow-blur * -1 $shadow-blur * -1 $shadow-blur $shadow-colour;
+}

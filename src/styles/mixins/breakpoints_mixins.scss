@@ -1,0 +1,168 @@
+@use "sass:math";
+@use "../constants/breakpoints.scss" as bp;
+
+// 1:   How to use
+// 2:   Function - Strip unit out of value
+// 3:   Function - Reduce ${maxwidth} by 1px
+// 4:   Mixin -    Breakpoints
+//
+// ------------
+//
+// 1: How to use
+//
+// Load in the mixin at the top of your document and give it a shorthand reference of "bp"
+// @use './{folder structure}/breakpoints_mixins.scss' as bp;
+//
+// Please refer to 'style-base-and-style-utils/constants/breakpoints.scss' for breakpoint values
+// Values for min-width/max-width: [small | smedium | medium | mlarge | large | xlarge]
+//
+// To display a min-width
+// .element {
+//
+//    This will result in showing the text as "blue"
+//    When the viewport size is at {{'medium': 40em (640px)}} or larger
+//
+//    @include bp.breakpoints(medium){
+//      color: red;
+//    }
+// }
+// Output: @media all and (min-width: 40em){ ... }
+//
+// To display a max-width
+// .element {
+//
+//    This will result in showing the text as "blue"
+//    When the viewport size is up to {{'medium' -1px: 39.9375em (639px)}}
+//
+//    @include bp.breakpoints(none, medium){
+//      color: blue;
+//    }
+// }
+// Output: @media all and (max-width: 39.9375em){ ... }
+//
+// Display between min-width AND max-width
+// .element {
+//
+//    This will result in showing the text as "green"
+//    When the viewport size is BETWEEN {{'small': 23.4375em (375px)}} AND {{'large' -1px: 63.9375em (1023px)}}
+//
+//    @include bp.breakpoints(small, large){
+//      color: green;
+//    }
+// }
+// Output: @media all and (min-width: 23.4375em) and (max-width: 63.9375em){ ... }
+
+// 2: Function - Strip unit out of value
+//
+// SASS provides the function unit() to isolate the unit from a value
+// For example: unit(400px) = px, but there isn't a function to isolate the number from a value.
+//
+// This function k-strip-unit(), isolates the number from the vavlue...
+// k-strip-unit(400px) = 400
+//
+// @param {string} $value
+@function k-strip-unit($value) {
+  @return math.div($value, ($value * 0 + 1));
+}
+
+// 3: Function - Reduce ${maxwidth} by 1px
+//
+// Takes the maxwidth value, set with EM unit, converts to PX,
+// reduces the value by 1px then converts back to EM for correct breakpoint value
+//
+// @param {string} $maxwidth
+@function k-reduce-maxwidth-by-1px($maxwidth) {
+  $value: k-strip-unit($maxwidth);
+
+  $pixel: $value * 16;
+  $output: $pixel - 1;
+
+  @return math.div($output, 16) * 1em;
+}
+
+// 4: Mixin - Breakpoints
+//
+// Mobile first breakpoints mixin, for min-width, max-width and media types.
+// Includes a bp.$breakpoints map of named viewport width size values.
+//
+// Credit: https://gist.github.com/ian-pvd
+// @param {string|number} $from - Named breakpoint or width value for min-width
+// @param {string|number} $to - Named breakpoint or width value for max-width
+// @param {string} $media - Media query type value, https://www.w3.org/TR/mediaqueries-4/#media-types
+@mixin breakpoints($from: none, $to: none, $media: all) {
+  // Set some empty min + max values
+  $min-width: false;
+  $max-width: false;
+
+  // Determine 'from' min-width value
+  @if (type-of($from) == string) and (map-has-key(bp.$breakpoints, $from)) {
+    // If value is a string listed in the named breakpoints map
+    $min-width: map-get(bp.$breakpoints, $from);
+    //} @else if ((type-of($from) == number) and (unitless($from) == false)) {
+  } @else if ($from != none) and (type-of(k-strip-unit($from)) == number) {
+    // If value is a number with a unit
+    $bp-from: k-strip-unit($from);
+    $bp-from: math.div($bp-from, 16) * 1em;
+    $min-width: $bp-from;
+  } @else if ($from == none) {
+    // If the value is blank
+    $min-width: false;
+  } @else {
+    // If none are true, display compile error
+    @error '`breakpoints()` min-width value `#{$from}` was not found.';
+  }
+
+  // Determine 'to' max-width value
+  @if (type-of($to) == string) and (map-has-key(bp.$breakpoints, $to)) {
+    // If value is a string listed in the named breakpoints map
+    $max-width: map-get(bp.$breakpoints, $to);
+  } @else if ($to != none) and (type-of(k-strip-unit($to)) == number) {
+    // If value is a number with a unit
+    $bp-to: k-strip-unit($to);
+    $bp-to: math.div($bp-to, 16) * 1em;
+    $max-width: $bp-to;
+  } @else if ($to == none) {
+    // If the value is blank
+    $max-width: false;
+  } @else {
+    // If none are true, display compile error
+    @error '`breakpoints()` max-width value `#{$to}` was not found.';
+  }
+
+  // If both min-width & max-width values:
+  @if ($min-width != false) and ($max-width != false) {
+    // Increment min-width value by 1px
+    $max-width: k-reduce-maxwidth-by-1px($max-width);
+    @media #{$media} and (min-width: #{$min-width}) and (max-width: #{$max-width}) {
+      // breakpoint mixin content:
+      @content;
+    }
+  }
+  // If only the min-width value is set:
+  @else if ($min-width != false) {
+    // Increment min-width value by 1px
+    @media #{$media} and (min-width: #{$min-width}) {
+      // breakpoint mixin content:
+      @content;
+    }
+  }
+  // If only the max-width value is set:
+  @else if ($max-width != false) {
+    $max-width: k-reduce-maxwidth-by-1px($max-width);
+    @media #{$media} and (max-width: #{$max-width}) {
+      // breakpoint mixin content:
+      @content;
+    }
+  }
+  // If min-width & max-width are empty, but special media type set:
+  @else if ($media != all) {
+    @media #{$media} {
+      // breakpoint mixin content:
+      @content;
+    }
+  }
+  // If no custom media query values are set:
+  @else {
+    @content;
+  }
+}

@@ -1,0 +1,18 @@
+@use "../../../styles/constants/colours.scss" as colour;
+@use "../../../styles/constants/typography.scss" as type;
+@use "../../../styles/constants/layout.scss" as layout;
+@use "../../../styles/mixins/shadows.scss" as mix;
+
+.word-riddle {
+  @include mix.text-shadow(colour.$pink-dark, 1px);
+  color: colour.$gold;
+  font-size: map-get(type.$body-large, "font-size");
+  line-height: map-get(type.$body-large, "line-height");
+  min-height: 100%;
+  padding: layout.$gutter-medium;
+  width: 100%;
+
+  span {
+    display: block;
+  }
+}

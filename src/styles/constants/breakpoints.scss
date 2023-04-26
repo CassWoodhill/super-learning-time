@@ -1,0 +1,20 @@
+// Break points constants
+// Media queries for these breakpoints are defined in 'mixins/breakpoints_mixins'.
+// See how those breakpoints work in our Engineering Playbook:
+// https://github.com/XenZoneGroup/engineering-playbooks/blob/main/docs/user_interface/breakpoints_and_layout_dimensions_consistent_across_frontends.md
+
+$start-of-S-viewports-group: 23.4375em; // 375px
+$start-of-SM-viewports-group: 30em; // 480px
+$start-of-M-viewports-group: 40em; // 640px
+$start-of-ML-viewports-group: 48em; // 768px
+$start-of-L-viewports-group: 64em; // 1024px
+$start-of-XL-viewports-group: 71.25em; // 1140px
+
+$breakpoints: (
+  small: $start-of-S-viewports-group,
+  smedium: $start-of-SM-viewports-group,
+  medium: $start-of-M-viewports-group,
+  mlarge: $start-of-ML-viewports-group,
+  large: $start-of-L-viewports-group,
+  xlarge: $start-of-XL-viewports-group,
+);
