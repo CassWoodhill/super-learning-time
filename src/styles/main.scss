@@ -1,7 +1,7 @@
-@use "./normalize.scss";
-@use "./typography.scss";
-@use "./constants/typography.scss" as type;
-@use "./constants/colours.scss" as colour;
+@use './normalize.scss';
+@use './typography.scss';
+@use './constants/typography.scss' as type;
+@use './constants/colours.scss' as colour;
 
 /*
  * Keep these global styles to an absolute minimum.
@@ -18,7 +18,6 @@
 }
 
 * {
-  margin: 0;
   padding: 0;
   border: 0;
   vertical-align: baseline;
@@ -30,12 +29,26 @@ img {
   max-width: 100%;
 }
 
+body,
+html {
+  height: 100%;
+}
+
 body {
-  background: colour.$dark;
-  color: colour.$light;
-  font-family: "Space Mono", sans-serif;
-  font-size: map-get(type.$body, "font-size");
-  line-height: map-get(type.$body, "line-height");
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: map-get(type.$body, 'font-size');
+  line-height: map-get(type.$body, 'line-height');
+  font-weight: 400;
+
+  /* ONLY NEEDED TEMP UNTIL THEME IS ESTABLISHED */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 img {

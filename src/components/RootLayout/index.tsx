@@ -26,7 +26,6 @@ const NavListItem: React.FC<NavListItemProps> = (props) => {
 export const RootLayout: React.FC = () => {
   return (
     <div className={css["root-layout"]}>
-      <RootLayoutTop />
       <div className={css["root-layout-body"]}>
         {/* <nav className={css.navigation}>
           <ul>
@@ -40,7 +39,6 @@ export const RootLayout: React.FC = () => {
           <Outlet />
         </main >
       </div >
-      <RootLayoutBottom />
     </div >
   );
 };

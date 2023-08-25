@@ -5,9 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from "./Home";
-import rooms from "./rooms";
 import { RootLayout } from "./RootLayout";
-import { Success } from "./Success";
 
 export function App() {
   const router = createBrowserRouter(
