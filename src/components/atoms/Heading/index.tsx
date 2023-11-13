@@ -40,12 +40,8 @@ const CHeading = styled(UnstyledHeading) <HeadingProps>`
   color: #222;
   font-size: ${props => `var(--font-size-heading-${props.level})`};
   line-height: 1.25;
-  margin: 0;
+  margin-bottom: 0;
   max-width: 60ch;
-
-  &:not(h1) {
-    margin-top: 1.875rem;
-  }
 `
 
 export default CHeading;
