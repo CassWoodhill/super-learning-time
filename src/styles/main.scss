@@ -1,8 +1,18 @@
 @use './normalize.scss';
-@use './typography.scss';
 @use './constants/typography.scss' as type;
 @use './constants/colours.scss' as colour;
 
+// https://flatuicolors.com/palette/ca
+:root {
+  --font-size-body: 1.125rem;
+  --font-size-heading-1: 3.125rem;
+  --font-size-heading-2: 2.5rem;
+  --font-size-heading-3: 2rem;
+  --font-size-heading-4: 1.375rem;
+  --colour-link: #2e86de;
+  --colour-visited: #01a3a4;
+  --colour-focus: #f368e0;
+}
 /*
  * Keep these global styles to an absolute minimum.
  *
@@ -18,7 +28,6 @@
 }
 
 * {
-  padding: 0;
   border: 0;
   vertical-align: baseline;
   font-smooth: always;
@@ -36,19 +45,19 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif, -apple-system,
+    BlinkMacSystemFont;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: map-get(type.$body, 'font-size');
   line-height: map-get(type.$body, 'line-height');
   font-weight: 400;
 
-  /* ONLY NEEDED TEMP UNTIL THEME IS ESTABLISHED */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // /* ONLY NEEDED TEMP UNTIL THEME IS ESTABLISHED */
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
 }
 
 img {
@@ -61,7 +70,12 @@ button,
 select,
 textarea {
   &:focus-visible {
-    box-shadow: 0 0 0 0.2rem colour.$gold;
+    box-shadow: 0 0 0 0.2rem var(--colour-visited);
     outline: none;
   }
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
 }

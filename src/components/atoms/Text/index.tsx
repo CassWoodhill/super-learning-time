@@ -16,20 +16,6 @@ interface TextProps extends HTMLAttributes<HTMLElement> {
    */
   bold?: boolean;
   /**
-   * If `italic` is true, the text is rendered with `font-style: italic;`
-   */
-  italic?: boolean;
-  /**
-   * Adds an ID attribute with specified value
-   * ### Accessibility Guidance
-   * This is useful if you want to use the text element to describe a form input using `aria-describedby`
-   */
-  id?: string;
-  /**
-   * Hides the element visually, but ensures that it's still available to screen reader users
-   */
-  visuallyHidden?: boolean;
-  /**
    * Use this to add a class name to add to the underlying `p` or `span` element
    */
   className?: string;
