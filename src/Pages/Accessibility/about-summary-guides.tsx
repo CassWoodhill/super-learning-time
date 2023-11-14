@@ -10,16 +10,16 @@ const AboutSummaryGuides: React.FC = () => {
       <hr />
       <ul>
         <li>
-          <CLink href="https://www.accessguide.io/" openInNewTab>Access guide (opens in new tab)</CLink>
+          <CLink href="https://www.accessguide.io/" openInNewTab>Access guide</CLink>
         </li>
         <li>
           <CLink href="https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/" openInNewTab>
-            GOV UK - Dos and Don'ts on designing for accessibility (opens in new tab)
+            Dos and Don'ts on designing for accessibility, GOV UK
           </CLink>
         </li>
         <li>
           <CLink href="https://dequeuniversity.com/checklists/web/" openInNewTab>
-            Deque - Web accessibility checklist (opens in new tab)
+            Web accessibility checklist, Deque
           </CLink>
         </li>
       </ul>

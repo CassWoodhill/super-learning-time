@@ -12,13 +12,13 @@ const AboutWcag: React.FC = () => {
 
       <ul>
         <li>
-          <CLink href="https://jfhector.github.io/accessibility-guidelines/" openInNewTab>JF Hector - Simple web accessibility guidelines (opens in new tab)</CLink>
+          <CLink href="https://jfhector.github.io/accessibility-guidelines/" openInNewTab>Simple web accessibility guidelines, JF Hector Labram</CLink>
         </li>
         <li>
-          <CLink href="https://appt.org/en/guidelines/wcag" openInNewTab>Appt - WCAG guidelines for apps (opens in new tab)</CLink>
+          <CLink href="https://appt.org/en/guidelines/wcag" openInNewTab>WCAG guidelines for apps, Appt</CLink>
         </li>
         <li>
-          <CLink href="https://www.digitala11y.com/wcag2-0/" openInNewTab>Digital a11y - Understanding WCAG (opens in new tab)</CLink>
+          <CLink href="https://www.digitala11y.com/wcag2-0/" openInNewTab>Understanding WCAG, Digital a11y</CLink>
         </li>
       </ul>
     </>

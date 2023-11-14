@@ -64,7 +64,7 @@ const UnstyledLink: React.FC<LinkProps> = (props) => {
         })}
         {...otherProps}
       >
-        {children}
+        {children} {openInNewTab && `(opens in new tab)`}
       </a>
     );
   } else if (isLinkPropsRenderingReactRouterLink(props)) {

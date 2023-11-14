@@ -10,7 +10,7 @@ const Home: React.FC = () => {
     <CMain>
       <CHeading level={1}>Welcome to Cass Woodhill's thoughts</CHeading>
       <CText>
-        I am a front-end specialised software engineer, and accessibility chamption at <CLink href="http://www.kooth.com" openInNewTab>Kooth (opens in new window)</CLink>.
+        I am a front-end specialised software engineer, and accessibility chamption at <CLink href="http://www.kooth.com" openInNewTab>Kooth</CLink>.
       </CText>
       <CText>
         This space will be for posting anything I've learnt, want to learn or document. The pages will be sparse to begin with as I collate all my bookmarks and post them in a readable format.

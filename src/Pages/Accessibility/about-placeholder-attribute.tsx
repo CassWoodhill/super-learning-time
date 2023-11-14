@@ -13,13 +13,13 @@ const AboutPlaceholderAttribute: React.FC = () => {
       </CText>
       <ul>
         <li>
-          <CLink href="https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Placeholder_Research" openInNewTab>W3 (opens in new tab)</CLink>
+          <CLink href="https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Placeholder_Research" openInNewTab>Placeholder research, W3</CLink>
         </li>
         <li>
-          <CLink href="https://html.spec.whatwg.org/multipage/input.html#the-placeholder-attribute" openInNewTab>HTML working group (opens in new tab)</CLink>
+          <CLink href="https://html.spec.whatwg.org/multipage/input.html#the-placeholder-attribute" openInNewTab>HTML working group</CLink>
         </li>
         <li>
-          <CLink href="https://www.uxmatters.com/mt/archives/2010/03/dont-put-hints-inside-text-boxes-in-web-forms.php" openInNewTab>UX matters (opens in new tab)</CLink>
+          <CLink href="https://www.uxmatters.com/mt/archives/2010/03/dont-put-hints-inside-text-boxes-in-web-forms.php" openInNewTab>Don't put hints inside text boxes in web forms, UX matters</CLink>
         </li>
       </ul>
     </>

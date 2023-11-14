@@ -11,12 +11,12 @@ const AboutAccessibilityCost: React.FC = () => {
       <ul>
         <li>
           <CLink href="https://karlgroves.com/understanding-the-cost-of-not-being-accessible/" openInNewTab>
-            Karl Groves - Understanding the cost of not being accessible (opens in new tab)
+            Understanding the cost of not being accessible, Karl Groves
           </CLink>
         </li>
         <li>
           <CLink href="https://karlgroves.com/how-long-until-your-website-is-accessible/" openInNewTab>
-            Karl Groves - How long until your website is accessible? (opens in new tab)
+            How long until your website is accessible?, Karl Groves
           </CLink>
         </li>
       </ul>
